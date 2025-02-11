@@ -1,0 +1,35 @@
+{
+  "name": "ngon-ngon-app-api",
+  "version": "1.0.0",
+  "description": "An API for the Ngon Ngon web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test",
+    "build": "npx tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielnmai/ngon-ngon-app-api.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "Nghia Mai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielnmai/ngon-ngon-app-api/issues"
+  },
+  "homepage": "https://github.com/danielnmai/ngon-ngon-app-api#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
