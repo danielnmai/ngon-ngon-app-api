@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "yarn test",
+    "db:migrate": "yarn prisma migrate dev",
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts"
@@ -23,13 +24,19 @@
   },
   "homepage": "https://github.com/danielnmai/ngon-ngon-app-api#readme",
   "dependencies": {
+    "@prisma/client": "6.3.1",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.1",
+    "prisma": "6.3.1",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }
