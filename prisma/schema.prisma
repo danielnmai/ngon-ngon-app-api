@@ -42,7 +42,8 @@ model Food {
   updatedAt       DateTime @updatedAt
   name            String
   description     String?
-  price           Int
+  prices          Int[]
+  minimumQuantity Int @default(1)
   orders          FoodOnOrders[]
 }
 
