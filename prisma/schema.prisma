@@ -42,9 +42,19 @@ model Food {
   updatedAt       DateTime @updatedAt
   name            String
   description     String?
-  prices          Int[]
-  minimumQuantity Int @default(1)
   orders          FoodOnOrders[]
+  options         FoodOptions[]
+}
+
+model FoodOptions {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  size            Size
+  price           Int
+  minQuantity     Int @default(1)
+  food            Food     @relation(fields: [foodId], references: [id])
+  foodId          Int
 }
 
 model FoodOnOrders {
@@ -57,6 +67,12 @@ model FoodOnOrders {
   updatedAt       DateTime @updatedAt
 
   @@id([orderId, foodId])
+}
+
+enum Size {
+  SMALL
+  MEDIUM
+  LARGE
 }
 
 enum PaymentType {

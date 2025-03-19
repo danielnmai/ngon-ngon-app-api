@@ -26,10 +26,12 @@ const main = async () => {
   });
   for await (const food of foods) {
     const { id, ...fields } = food;
-    await prisma.food.upsert({
-      where: { id: food.id },
-      update: { ...food },
-      create: { ...fields },
+    await prisma.food.create({
+      // where: { id: food!.id },
+      // update: { ...food },
+      data: {
+        ...fields,
+      },
     });
   }
 };
