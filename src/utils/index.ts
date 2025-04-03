@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
+import { OAuth2Client } from "google-auth-library";
 import { getReasonPhrase, StatusCodes } from "http-status-codes";
-import jwt from "jsonwebtoken";
 
 export interface TypedRequest<T> extends Express.Request {
   body: T;
@@ -53,20 +53,31 @@ const authenticationHandler = (
   const token = authHeader && authHeader.split(" ")[1];
 
   if (!token) {
-    res.sendStatus(StatusCodes.UNAUTHORIZED);
+    res.sendStatus(StatusCodes.BAD_REQUEST);
     return;
   }
 
-  jwt.verify(token, "secret", (error, payload) => {
-    if (error) {
-      res.status(StatusCodes.FORBIDDEN).send(error);
-      return;
+  const oAuth2Client = new OAuth2Client(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    "postmessage"
+  );
+
+  oAuth2Client.verifyIdToken(
+    {
+      idToken: token,
+      audience: process.env.CLIENT_ID,
+    },
+    (error) => {
+      if (error) {
+        console.error("Error verifying token:", error);
+        res.sendStatus(StatusCodes.UNAUTHORIZED);
+        return;
+      } else {
+        next();
+      }
     }
-
-    console.log("payload ", payload);
-
-    next();
-  });
+  );
 };
 
 export { authenticationHandler, errorHandler, withTryCatch };
