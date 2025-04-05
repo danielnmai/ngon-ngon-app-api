@@ -53,7 +53,7 @@ const authenticationHandler = (
   const token = authHeader && authHeader.split(" ")[1];
 
   if (!token) {
-    res.sendStatus(StatusCodes.BAD_REQUEST);
+    res.sendStatus(StatusCodes.UNAUTHORIZED);
     return;
   }
 

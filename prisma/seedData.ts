@@ -6,218 +6,302 @@ const foodWithOptions = Prisma.validator<Prisma.FoodDefaultArgs>()({
 
 type FoodWithOptions = Prisma.FoodGetPayload<typeof foodWithOptions>;
 
-export const foods: Partial<FoodWithOptions[]> = [
+export const foods: FoodWithOptions[] = [
   {
     id: 1,
     name: "Bún Đậu Mắm Tôm Chả Cốm",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.SMALL,
-          minQuantity: 1,
-          price: 1400,
-        },
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 2600,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 5000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 1,
+        size: Size.SMALL,
+        minQuantity: 1,
+        price: 1400,
+        foodId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: 2,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 2600,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 1,
+      },
+      {
+        id: 3,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 1,
+      },
+    ],
   },
   {
     id: 2,
     name: "Mì Xào Hải Sản",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 5000,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 8000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 4,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 2,
+      },
+      {
+        id: 5,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 8000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 2,
+      },
+    ],
   },
   {
     id: 3,
     name: "Gỏi Tiến Vua Lỗ Tai Heo",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 5000,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 8000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 6,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 3,
+      },
+      {
+        id: 7,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 8000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 3,
+      },
+    ],
   },
   {
     id: 4,
     name: "Bánh Mì Xíu Mại",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 600,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 8,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 600,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 4,
+      },
+    ],
   },
   {
     id: 5,
     name: "Nui Xào Bò",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 5000,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 8000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 9,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 5,
+      },
+      {
+        id: 10,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 8000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 5,
+      },
+    ],
   },
   {
     id: 6,
     name: "Cánh Gà Chiên Nước Mắm",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 2500,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 5000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 11,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 2500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 6,
+      },
+      {
+        id: 12,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 6,
+      },
+    ],
   },
   {
     id: 7,
     name: "Cánh Gà Rô Ti",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 2500,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 5000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 13,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 2500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 7,
+      },
+      {
+        id: 14,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 7,
+      },
+    ],
   },
   {
     id: 8,
     name: "Chả Giò Chay",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 20,
-          price: 75,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 15,
+        size: Size.MEDIUM,
+        minQuantity: 20,
+        price: 75,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 8,
+      },
+    ],
   },
   {
     id: 9,
     name: "Chả Giò Mặn Chiên",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 20,
-          price: 75,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 16,
+        size: Size.MEDIUM,
+        minQuantity: 20,
+        price: 75,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 9,
+      },
+    ],
   },
   {
     id: 10,
     name: "Bì Cuốn Chay",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 10,
-          price: 150,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 17,
+        size: Size.MEDIUM,
+        minQuantity: 10,
+        price: 150,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 10,
+      },
+    ],
   },
   {
     id: 11,
     name: "Tôm Chiên Xù",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 5000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 18,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 5000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 11,
+      },
+    ],
   },
   {
     id: 12,
     name: "Bắp Xào",
     description: "Món ăn không thể thiếu",
-    options: {
-      create: [
-        {
-          size: Size.SMALL,
-          minQuantity: 1,
-          price: 700,
-        },
-        {
-          size: Size.MEDIUM,
-          minQuantity: 1,
-          price: 1500,
-        },
-        {
-          size: Size.LARGE,
-          minQuantity: 1,
-          price: 3000,
-        },
-      ],
-    },
+    createdAt: new Date(),
+    updatedAt: new Date(),
+    options: [
+      {
+        id: 19,
+        size: Size.SMALL,
+        minQuantity: 1,
+        price: 700,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 12,
+      },
+      {
+        id: 20,
+        size: Size.MEDIUM,
+        minQuantity: 1,
+        price: 1500,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 12,
+      },
+      {
+        id: 21,
+        size: Size.LARGE,
+        minQuantity: 1,
+        price: 3000,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        foodId: 12,
+      },
+    ],
   },
 ];
