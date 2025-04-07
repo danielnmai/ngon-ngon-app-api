@@ -10,7 +10,7 @@ export const foods: FoodWithOptions[] = [
   {
     id: 1,
     name: "Bún Đậu Mắm Tôm Chả Cốm",
-    description: "Món ăn không thể thiếu",
+    description: "vermicelli with fried tofu and shrimp paste",
     createdAt: new Date(),
     updatedAt: new Date(),
     options: [
