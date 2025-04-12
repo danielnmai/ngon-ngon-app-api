@@ -44,6 +44,7 @@ model Food {
   description     String?
   orders          FoodOnOrders[]
   options         FoodOptions[]
+  photos          String[]
 }
 
 model FoodOptions {
