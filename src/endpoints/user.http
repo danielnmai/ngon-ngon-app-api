@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:3000/v1
+@token = your-token
+### Get all foods
+GET {{baseUrl}}/foods
+
+### Get user by ID
+GET {{baseUrl}}/users/6
+Content-Type: application/json
+Authorization: Bearer {{token}}

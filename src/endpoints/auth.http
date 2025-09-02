@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:3000/v1
+@token = your-token
+### Refresh JWT
+POST {{baseUrl}}/auth/refresh-token
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refreshToken}}"
+}
+
+### Verify JWT
+GET {{baseUrl}}/auth/verify-jwt
+Content-Type: application/json
+{
+  "token": "your-jwt-token"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+{
+  "code": "your-auth-code"
+} 
