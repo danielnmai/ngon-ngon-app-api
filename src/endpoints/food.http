@@ -1,0 +1,6 @@
+@baseUrl = http://localhost:3000/v1
+
+### Get all foods
+GET {{baseUrl}}/foods
+Content-Type: application/json
+Authorization: Bearer {{token}}

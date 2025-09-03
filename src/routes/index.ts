@@ -1,7 +1,7 @@
 import express from "express";
 import { login, refreshToken, verifyJWT } from "../controllers/auth.controller";
 import { getAllFoods } from "../controllers/food.controller";
-import { getAllOrders, getOrder } from "../controllers/order.controller";
+import { getAllOrders, getOrder, createOrder } from "../controllers/order.controller";
 import { getUser } from "../controllers/user.controller";
 import { authenticationHandler, withTryCatch } from "../utils";
 
@@ -14,5 +14,6 @@ router.get("/users/:userId", authenticationHandler, withTryCatch(getUser));
 router.post("/auth/login", withTryCatch(login));
 router.post("/auth/refresh-token", withTryCatch(refreshToken));
 router.get("/auth/verify-jwt", withTryCatch(verifyJWT));
+router.post("/orders", withTryCatch(createOrder));
 
 export default router;

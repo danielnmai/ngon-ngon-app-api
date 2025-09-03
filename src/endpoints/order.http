@@ -1,0 +1,15 @@
+@baseUrl = http://localhost:3000/v1
+
+### Get all orders
+GET {{baseUrl}}/orders
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Create a new order
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "productId": "prod_123",
+  "quantity": 1
+}

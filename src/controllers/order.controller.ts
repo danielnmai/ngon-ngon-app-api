@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
+const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 
 const prisma = new PrismaClient();
 
@@ -14,12 +15,24 @@ const getOrder = async (req: Request, res: Response) => {
 };
 
 const getAllOrders = async (req: Request, res: Response) => {
-  const user = await prisma.user.findUnique({
-    where: { id: 1 },
-    select: { orders: true },
-  });
 
-  res.status(200).send(user?.orders);
+  const orders = await prisma.order.findMany();
+
+  res.status(200).send(orders);
 };
 
-export { getAllOrders, getOrder };
+const createOrder = async (req: Request, res: Response) => {
+
+  const paymentLink = await stripe.paymentLinks.create({
+    line_items: [
+      {
+        price: 'price_1S1F0hKA1oovtT3Z0sIQpKiz',
+        quantity: 1,
+      },
+    ],
+  });
+
+  res.status(200).send(paymentLink);
+}
+
+export { getAllOrders, getOrder, createOrder };
