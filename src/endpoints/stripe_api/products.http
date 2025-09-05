@@ -1,0 +1,6 @@
+@baseUrl = https://api.stripe.com/v1
+
+### Get all products
+GET {{baseUrl}}/products?limit=25
+Content-Type: application/json
+Authorization: Basic {{stripeAPIToken}}
