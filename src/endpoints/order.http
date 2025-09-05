@@ -11,5 +11,5 @@ Content-Type: application/json
 
 {
   "productId": "prod_123",
-  "quantity": 1
+  "quantity": 3
 }

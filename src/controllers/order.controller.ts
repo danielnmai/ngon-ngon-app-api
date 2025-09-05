@@ -23,11 +23,13 @@ const getAllOrders = async (req: Request, res: Response) => {
 
 const createOrder = async (req: Request, res: Response) => {
 
+  const { productId, quantity } = req.body;
+
   const paymentLink = await stripe.paymentLinks.create({
     line_items: [
       {
         price: 'price_1S1F0hKA1oovtT3Z0sIQpKiz',
-        quantity: 1,
+        quantity,
       },
     ],
   });
