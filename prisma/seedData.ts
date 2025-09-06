@@ -24,6 +24,8 @@ export const foods: FoodWithOptions[] = [
         foodId: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
+        stripePriceId: 'price_1S3nHMKA1oovtT3Z2n9tmGL0'
+
       },
       {
         id: 2,
@@ -33,6 +35,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 1,
+        stripePriceId: 'price_1S1F0hKA1oovtT3Z0sIQpKiz'
       },
       {
         id: 3,
@@ -42,6 +45,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 1,
+        stripePriceId: 'price_1S3nHMKA1oovtT3Z2n9tmGL0'
       },
     ],
   },
@@ -62,6 +66,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 2,
+        stripePriceId: 'price_1S3nMsKA1oovtT3ZUqzOmnl2'
       },
       {
         id: 5,
@@ -71,6 +76,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 2,
+        stripePriceId: 'price_1S3nMGKA1oovtT3ZfWLooNWD'
       },
     ],
   },
@@ -91,6 +97,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 3,
+        stripePriceId: 'price_1S3nO6KA1oovtT3Zm5dExpe1'
       },
       {
         id: 7,
@@ -100,6 +107,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 3,
+        stripePriceId: 'price_1S3nOUKA1oovtT3Z9hRBIPCM'
       },
     ],
   },
@@ -120,6 +128,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 4,
+        stripePriceId: 'price_1S3nOzKA1oovtT3ZMYEdAYiH'
       },
     ],
   },
@@ -140,6 +149,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 5,
+        stripePriceId: 'price_1S3nPqKA1oovtT3Z2X3fWkTu'
       },
       {
         id: 10,
@@ -149,6 +159,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 5,
+        stripePriceId: 'price_1S3nQBKA1oovtT3ZWFbtAoGk'
       },
     ],
   },
@@ -169,6 +180,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 6,
+        stripePriceId: 'price_1S441pKA1oovtT3Za3LLIuL3'
       },
       {
         id: 12,
@@ -178,6 +190,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 6,
+        stripePriceId: 'price_1S442KKA1oovtT3Z4iLJ06pW'
       },
     ],
   },
@@ -198,6 +211,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 7,
+        stripePriceId: 'price_1S445kKA1oovtT3ZexnIkDOP'
       },
       {
         id: 14,
@@ -207,6 +221,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 7,
+        stripePriceId: 'price_1S446BKA1oovtT3ZzIDlMIHS'
       },
     ],
   },
@@ -227,6 +242,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 8,
+        stripePriceId: 'price_1S447CKA1oovtT3Z2bTtHeqg'
       },
     ],
   },
@@ -247,6 +263,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 9,
+        stripePriceId: 'price_1S447kKA1oovtT3ZJQNpHUR8'
       },
     ],
   },
@@ -268,6 +285,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 10,
+        stripePriceId: 'price_1S448KKA1oovtT3ZtBYTwBBF'
       },
     ],
   },
@@ -289,6 +307,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 11,
+        stripePriceId: 'price_1S448wKA1oovtT3ZZy84omh4'
       },
     ],
   },
@@ -310,6 +329,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 12,
+        stripePriceId: 'price_1S449YKA1oovtT3Z6iXMvQ84'
       },
       {
         id: 20,
@@ -319,6 +339,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 12,
+        stripePriceId: 'price_1S44A3KA1oovtT3ZuNYf5PxJ'
       },
       {
         id: 21,
@@ -328,6 +349,7 @@ export const foods: FoodWithOptions[] = [
         createdAt: new Date(),
         updatedAt: new Date(),
         foodId: 12,
+        stripePriceId: 'price_1S44AZKA1oovtT3ZN0Ik2NNo'
       },
     ],
   },
