@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/ping", (req: Request, res: Response) => {
-  res.status(200).send("pong");
+	res.status(200).send("pong");
 });
 
 app.use("/v1", routes);
@@ -22,5 +22,5 @@ app.use("/v1", routes);
 app.use(errorHandler);
 
 app.listen(port, () => {
-  console.log(`[server]:Server is running at http://localhost:${port}`);
+	console.log(`[server]:Server is running at http://localhost:${port}`);
 });

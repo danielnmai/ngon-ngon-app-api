@@ -10,8 +10,18 @@ POST {{baseUrl}}/orders
 Content-Type: application/json
 
 {
-  "productId": "prod_123",
-  "quantity": 3
+  "userId": 6,
+  "description": "order from user 6",
+  "paymentType": "CASH",
+  "total": 1000
+}
+
+### Update order payment status
+PATCH {{baseUrl}}/orders/{{testOrderId}}
+Content-Type: application/json
+
+{
+  "paymentStatus": "PAID"
 }
 
 ### Create a checkout session
@@ -19,7 +29,11 @@ POST {{baseUrl}}/orders/checkout-sessions
 Content-Type: application/json
 
 {
-  "items": [
+  "userId": 7,
+  "description": "order from user 7",
+  "paymentType": "CASH",
+  "total": 90000,
+  "lineItems": [
     {
       "stripePriceId": "price_1S1F0hKA1oovtT3Z0sIQpKiz",
       "quantity": 2
