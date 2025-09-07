@@ -13,3 +13,16 @@ Content-Type: application/json
   "productId": "prod_123",
   "quantity": 3
 }
+
+### Create a checkout session
+POST {{baseUrl}}/orders/checkout-sessions
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "stripePriceId": "price_1S1F0hKA1oovtT3Z0sIQpKiz",
+      "quantity": 2
+    }
+  ]
+}

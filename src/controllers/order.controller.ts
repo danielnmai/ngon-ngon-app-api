@@ -1,5 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import { FoodOptions, PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
+import { CartItemType } from "../schema/order";
+import { StatusCodes } from "http-status-codes";
 const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 
 const prisma = new PrismaClient();
@@ -37,4 +39,22 @@ const createOrder = async (req: Request, res: Response) => {
   res.status(200).send(paymentLink);
 }
 
-export { getAllOrders, getOrder, createOrder };
+const createCheckoutSession = async (req: Request, res: Response) => {
+  const { lineItems } = req.body;
+
+  const line_items = lineItems.map((item: CartItemType) => ({
+    price: item.stripePriceId,
+    quantity: item.quantity,
+  }));
+
+  const session = await stripe.checkout.sessions.create({
+    line_items,
+    mode: 'payment',
+    success_url: `${process.env.FRONTEND_URL}?success=true`,
+    cancel_url: `${process.env.FRONTEND_URL}?cancel=true`,
+  });
+
+  res.redirect(303, session.url);
+};
+
+export { getAllOrders, getOrder, createOrder, createCheckoutSession };
