@@ -21,7 +21,7 @@ PATCH {{baseUrl}}/orders/{{testOrderId}}
 Content-Type: application/json
 
 {
-  "paymentStatus": "PAID"
+  "paymentStatus": "SUCCESS"
 }
 
 ### Create a checkout session
