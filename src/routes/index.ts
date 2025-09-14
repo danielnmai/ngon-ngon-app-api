@@ -2,10 +2,11 @@ import express from "express";
 import { login, refreshToken, verifyJWT } from "../controllers/auth.controller";
 import { getAllFoods } from "../controllers/food.controller";
 import {
+	createCheckoutSession,
+	createOrder,
 	getAllOrders,
 	getOrder,
-	createOrder,
-	createCheckoutSession,
+	postWebhook,
 	updateOrderPaymentStatus,
 } from "../controllers/order.controller";
 import { getUser } from "../controllers/user.controller";
@@ -23,5 +24,10 @@ router.get("/auth/verify-jwt", withTryCatch(verifyJWT));
 router.post("/orders", withTryCatch(createOrder));
 router.post("/orders/checkout-sessions", withTryCatch(createCheckoutSession));
 router.patch("/orders/:orderId", withTryCatch(updateOrderPaymentStatus));
+router.post(
+	"/webhook",
+	express.raw({ type: "application/json" }),
+	withTryCatch(postWebhook),
+);
 
 export default router;

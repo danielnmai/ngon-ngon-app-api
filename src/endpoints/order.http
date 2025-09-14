@@ -40,3 +40,32 @@ Content-Type: application/json
     }
   ]
 }
+
+### Stripe webhook
+# POST https://bc6ee50f3939.ngrok-free.app/v1/webhook
+POST {{baseUrl}}/webhook
+Content-Type: application/json
+
+{
+  "id": "evt_1N2eY2KA1oovtT3Z0aX4b6kD",
+  "object": "event",
+  "api_version": "2022-11-15",
+  "created": 1700000000,
+  "data": {
+    "object": {
+      "id": "cs_test_a1b2c3d4e5f6g7h8i9j0",
+      "object": "checkout.session",
+      "amount_subtotal": 90000,
+      "amount_total": 90000,
+      "currency": "usd",
+      "payment_status": "paid"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 1,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}

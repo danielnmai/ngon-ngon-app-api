@@ -1,7 +1,9 @@
 import { FoodOptions, PrismaClient } from "@prisma/client";
-import { Request, Response } from "express";
-import { CartItemType, Order } from "../schema/order";
+import type { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import type { Stripe } from "stripe";
+import type { CartItemType, Order } from "../schema/order";
+
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 
 const prisma = new PrismaClient();
@@ -77,10 +79,37 @@ const createCheckoutSession = async (req: Request, res: Response) => {
 	res.status(StatusCodes.OK).send({ url: session.url });
 };
 
+const postWebhook = async (req: Request, res: Response) => {
+	// const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+	const event: Stripe.Event = req.body;
+
+	switch (event.type) {
+		case "checkout.session.completed": {
+			const session = event.data.object as Stripe.Checkout.Session;
+			console.log(
+				"Checkout session payment was successful. Session: ",
+				session,
+			);
+			
+			break;
+		}
+		// case "payment_intent.succeeded":
+		// 	const paymentIntent = event.data.object;
+		// 	console.log('PaymentIntent was successful! ', paymentIntent);
+		// 	break;
+		default:
+			console.log("Unhandled event type ", event.type);
+	}
+
+	return res.status(200).send({ received: true });
+};
+
 export {
 	getAllOrders,
 	getOrder,
 	createOrder,
 	createCheckoutSession,
 	updateOrderPaymentStatus,
+	postWebhook,
 };
