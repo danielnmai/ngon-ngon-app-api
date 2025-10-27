@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PaymentStatus, PrismaClient } from "@prisma/client";
 import { foods } from "./seedData";
 
 const prisma = new PrismaClient();
@@ -18,13 +18,13 @@ const main = async () => {
 		update: {
 			description: "Co Tu",
 			total: 50000,
-			paymentStatus: true,
+			paymentStatus: PaymentStatus.PENDING,
 			userId: user.id,
 		},
 		create: {
 			description: "Co Tu",
 			total: 50000,
-			paymentStatus: true,
+			paymentStatus: PaymentStatus.PENDING,
 			userId: user.id,
 		},
 	});
