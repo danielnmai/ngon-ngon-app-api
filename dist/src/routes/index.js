@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const auth_controller_1 = require("../controllers/auth.controller");
+const food_controller_1 = require("../controllers/food.controller");
+const order_controller_1 = require("../controllers/order.controller");
+const user_controller_1 = require("../controllers/user.controller");
+const utils_1 = require("../utils");
+const router = express_1.default.Router();
+router.get("/orders/:orderId", (0, utils_1.withTryCatch)(order_controller_1.getOrder));
+router.get("/orders", (0, utils_1.withTryCatch)(order_controller_1.getAllOrders));
+router.get("/foods", (0, utils_1.withTryCatch)(food_controller_1.getAllFoods));
+router.get("/users/:userId", utils_1.authenticationHandler, (0, utils_1.withTryCatch)(user_controller_1.getUser));
+router.post("/auth/login", (0, utils_1.withTryCatch)(auth_controller_1.login));
+router.post("/auth/refresh-token", (0, utils_1.withTryCatch)(auth_controller_1.refreshToken));
+router.get("/auth/verify-jwt", (0, utils_1.withTryCatch)(auth_controller_1.verifyJWT));
+router.post("/orders", (0, utils_1.withTryCatch)(order_controller_1.createOrder));
+router.post("/orders/checkout-sessions", (0, utils_1.withTryCatch)(order_controller_1.createCheckoutSession));
+router.patch("/orders/:orderId", (0, utils_1.withTryCatch)(order_controller_1.updateOrderPaymentStatus));
+router.post("/webhook", express_1.default.raw({ type: "application/json" }), (0, utils_1.withTryCatch)(order_controller_1.postWebhook));
+exports.default = router;

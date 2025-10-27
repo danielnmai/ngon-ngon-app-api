@@ -104,7 +104,7 @@ const postWebhook = async (req: Request, res: Response) => {
 			console.log("Unhandled event type ", event.type);
 	}
 
-	return res.status(200).send({ received: true });
+	res.status(200).send({ received: true });
 };
 
 export {
