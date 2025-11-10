@@ -8,22 +8,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.verifyJWT = exports.refreshToken = exports.login = void 0;
-const client_1 = require("@prisma/client");
 const google_auth_library_1 = require("google-auth-library");
 const jwt_decode_1 = require("jwt-decode");
-const prisma = new client_1.PrismaClient();
+const prisma_1 = __importDefault(require("../utils/prisma"));
 const oAuth2Client = new google_auth_library_1.OAuth2Client(process.env.CLIENT_ID, process.env.CLIENT_SECRET, "postmessage");
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { code } = req.body;
     const { tokens } = yield oAuth2Client.getToken(code);
     const { email, name, picture } = (0, jwt_decode_1.jwtDecode)(tokens.id_token);
-    let user = yield prisma.user.findUnique({
+    let user = yield prisma_1.default.user.findUnique({
         where: { email },
     });
     if (!user) {
-        user = yield prisma.user.create({
+        user = yield prisma_1.default.user.create({
             data: {
                 email,
                 name,

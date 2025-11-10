@@ -8,12 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllFoods = void 0;
-const client_1 = require("@prisma/client");
-const prisma = new client_1.PrismaClient();
+const prisma_1 = __importDefault(require("../utils/prisma"));
 const getAllFoods = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const foods = yield prisma.food.findMany({ include: { options: true } });
+    const foods = yield prisma_1.default.food.findMany({ include: { options: true } });
     res.status(200).send(foods);
 });
 exports.getAllFoods = getAllFoods;

@@ -1,7 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
-
-const prisma = new PrismaClient();
+import prisma from "../utils/prisma";
 
 const getAllFoods = async (req: Request, res: Response) => {
 	const foods = await prisma.food.findMany({ include: { options: true } });

@@ -1,12 +1,11 @@
-import { FoodOptions, PrismaClient } from "@prisma/client";
+import { FoodOptions } from "@prisma/client";
 import type { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import type { Stripe } from "stripe";
+import prisma from "../utils/prisma";
 import type { CartItemType, Order } from "../schema/order";
 
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
-
-const prisma = new PrismaClient();
 
 const getOrder = async (req: Request, res: Response) => {
 	const { orderId } = req.params;

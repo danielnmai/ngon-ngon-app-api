@@ -8,28 +8,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.postWebhook = exports.updateOrderPaymentStatus = exports.createCheckoutSession = exports.createOrder = exports.getOrder = exports.getAllOrders = void 0;
-const client_1 = require("@prisma/client");
 const http_status_codes_1 = require("http-status-codes");
+const prisma_1 = __importDefault(require("../utils/prisma"));
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
-const prisma = new client_1.PrismaClient();
 const getOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { orderId } = req.params;
-    const order = yield prisma.order.findUnique({
+    const order = yield prisma_1.default.order.findUnique({
         where: { id: +orderId },
     });
     res.status(200).send(order);
 });
 exports.getOrder = getOrder;
 const getAllOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const orders = yield prisma.order.findMany();
+    const orders = yield prisma_1.default.order.findMany();
     res.status(200).send(orders);
 });
 exports.getAllOrders = getAllOrders;
 const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { userId, paymentType, description, total } = req.body;
-    const order = yield prisma.order.create({
+    const order = yield prisma_1.default.order.create({
         data: {
             userId,
             paymentType,
@@ -43,7 +45,7 @@ exports.createOrder = createOrder;
 const updateOrderPaymentStatus = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { orderId } = req.params;
     const { paymentStatus } = req.body;
-    const order = yield prisma.order.update({
+    const order = yield prisma_1.default.order.update({
         where: { id: +orderId },
         data: { paymentStatus },
     });
@@ -53,7 +55,7 @@ exports.updateOrderPaymentStatus = updateOrderPaymentStatus;
 const createCheckoutSession = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { lineItems, total, paymentType, description, userId } = req.body;
     console.log('line items', lineItems);
-    const order = yield prisma.order.create({
+    const order = yield prisma_1.default.order.create({
         data: {
             total,
             paymentType,

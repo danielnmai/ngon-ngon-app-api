@@ -1,8 +1,6 @@
-import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-
-const prisma = new PrismaClient();
+import prisma from "../utils/prisma";
 
 const getUser = async (req: Request, res: Response) => {
 	const { userId } = req.params;
