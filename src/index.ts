@@ -10,12 +10,13 @@ import { errorHandler } from "./utils";
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
 app.get("/ping", (req: Request, res: Response) => {
+	console.log(process.env)
 	res.status(200).send("pong");
 });
 
@@ -42,9 +43,7 @@ export const handler = async (
 	return serverless(event, context);
 };
 
-// Local development server
-// Only start the server if not running in AWS Lambda
-if (process.env.NODE_ENV !== "production" || process.env.IS_OFFLINE) {
+if (process.env.NODE_ENV !== "production") {
 	app.listen(port || 3000, () => {
 		console.log(`[server]:Server is running at http://localhost:${port || 3000}`);
 	});

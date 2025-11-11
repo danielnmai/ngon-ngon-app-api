@@ -21,10 +21,11 @@ const routes_1 = __importDefault(require("./routes"));
 const utils_1 = require("./utils");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.get("/ping", (req, res) => {
+    console.log(process.env);
     res.status(200).send("pong");
 });
 app.use("/v1", routes_1.default);
@@ -43,9 +44,7 @@ const handler = (event, context) => __awaiter(void 0, void 0, void 0, function* 
     return serverless(event, context);
 });
 exports.handler = handler;
-// Local development server
-// Only start the server if not running in AWS Lambda
-if (process.env.NODE_ENV !== "production" || process.env.IS_OFFLINE) {
+if (process.env.NODE_ENV !== "production") {
     app.listen(port || 3000, () => {
         console.log(`[server]:Server is running at http://localhost:${port || 3000}`);
     });

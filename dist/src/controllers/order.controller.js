@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.postWebhook = exports.updateOrderPaymentStatus = exports.createCheckoutSession = exports.createOrder = exports.getOrder = exports.getAllOrders = void 0;
 const http_status_codes_1 = require("http-status-codes");
 const prisma_1 = __importDefault(require("../utils/prisma"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 const getOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { orderId } = req.params;

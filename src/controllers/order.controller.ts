@@ -4,6 +4,9 @@ import { StatusCodes } from "http-status-codes";
 import type { Stripe } from "stripe";
 import prisma from "../utils/prisma";
 import type { CartItemType, Order } from "../schema/order";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 

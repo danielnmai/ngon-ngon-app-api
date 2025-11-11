@@ -3,6 +3,9 @@ import { OAuth2Client, UserRefreshClient } from "google-auth-library";
 import { jwtDecode } from "jwt-decode";
 import prisma from "../utils/prisma";
 import { TypedRequest } from "../utils";
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const oAuth2Client = new OAuth2Client(
 	process.env.CLIENT_ID,

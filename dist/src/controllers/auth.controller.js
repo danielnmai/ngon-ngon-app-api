@@ -16,6 +16,8 @@ exports.verifyJWT = exports.refreshToken = exports.login = void 0;
 const google_auth_library_1 = require("google-auth-library");
 const jwt_decode_1 = require("jwt-decode");
 const prisma_1 = __importDefault(require("../utils/prisma"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const oAuth2Client = new google_auth_library_1.OAuth2Client(process.env.CLIENT_ID, process.env.CLIENT_SECRET, "postmessage");
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { code } = req.body;
