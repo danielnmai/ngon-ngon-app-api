@@ -18,6 +18,6 @@ export type Order = {
 	total: number;
 	paymentType: "CASH" | "STRIPE";
 	description: string;
-	userId: number;
+	userId?: number;
 	paymentStatus: boolean;
 };

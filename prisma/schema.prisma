@@ -30,6 +30,8 @@ model Order {
   description     String?
   user            User?     @relation(fields: [userId], references: [id])
   userId          Int?
+  userEmail       String?
+  userPhoneNumber String?
   total           Int
   paymentStatus   PaymentStatus @default(PENDING)
   paymentType     PaymentType @default(CASH)

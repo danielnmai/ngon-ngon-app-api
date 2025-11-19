@@ -57,14 +57,12 @@ const createCheckoutSession = async (req: Request, res: Response) => {
 	const { lineItems, total, paymentType, description, userId }: Order =
 		req.body;
 
-	console.log('line items', lineItems);
-
 	const order = await prisma.order.create({
 		data: {
 			total,
 			paymentType,
 			description,
-			userId,
+			userId: userId ?? null,
 		},
 	});
 
