@@ -1,60 +1,61 @@
 {
-	"name": "ngon-ngon-app-api",
-	"version": "1.0.0",
-	"description": "An API for the Ngon Ngon web app",
-	"main": "index.js",
-	"scripts": {
-		"test": "yarn test",
-		"db:migrate": "yarn prisma migrate dev",
-		"db:seed": "yarn prisma db seed",
-		"build": "npx tsc",
-		"start": "node dist/src/index.js",
-		"dev": "tsx watch src/index.ts",
-		"format": "biome format --write",
-		"lint-format": "biome check --write",
-		"lambda:build": "yarn build && yarn prisma generate",
-		"lambda:package": "yarn lambda:build && rm -f lambda-deployment.zip && cd dist && zip -r ../lambda-deployment.zip ."
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/danielnmai/ngon-ngon-app-api.git"
-	},
-	"keywords": [
-		"API"
-	],
-	"author": "Nghia Mai",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/danielnmai/ngon-ngon-app-api/issues"
-	},
-	"homepage": "https://github.com/danielnmai/ngon-ngon-app-api#readme",
-	"dependencies": {
-		"@prisma/client": "6.3.1",
-		"@vendia/serverless-express": "^4.12.6",
-		"bcrypt": "^5.1.1",
-		"cors": "^2.8.5",
-		"dayjs": "^1.11.13",
-		"dotenv": "^16.4.7",
-		"express": "^4.21.2",
-		"google-auth-library": "^9.15.1",
-		"http-status-codes": "^2.3.0",
-		"jsonwebtoken": "^9.0.2",
-		"jwt-decode": "^4.0.0",
-		"stripe": "^18.5.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.2.3",
-		"@types/aws-lambda": "^8.10.148",
-		"@types/bcrypt": "^5.0.2",
-		"@types/cors": "^2.8.17",
-		"@types/express": "^5.0.0",
-		"@types/jsonwebtoken": "^9.0.9",
-		"@types/node": "^22.13.1",
-		"prisma": "6.3.1",
-		"tsx": "^4.19.2",
-		"typescript": "^5.7.3"
-	},
-	"prisma": {
-		"seed": "tsx prisma/seed.ts"
-	}
+  "name": "ngon-ngon-app-api",
+  "version": "1.0.0",
+  "description": "An API for the Ngon Ngon web app",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "db:migrate": "yarn prisma migrate dev",
+    "db:seed": "yarn prisma db seed",
+    "dev": "tsx watch src/index.ts",
+    "format": "biome format --write",
+    "lambda:build": "yarn build && yarn prisma generate",
+    "lambda:package": "yarn lambda:build && rm -f lambda-deployment.zip && cd dist && zip -r ../lambda-deployment.zip .",
+    "lint-format": "biome check --write",
+    "start": "node dist/src/index.js",
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielnmai/ngon-ngon-app-api.git"
+  },
+  "keywords": [
+    "API"
+  ],
+  "author": "Nghia Mai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielnmai/ngon-ngon-app-api/issues"
+  },
+  "homepage": "https://github.com/danielnmai/ngon-ngon-app-api#readme",
+  "dependencies": {
+    "@prisma/client": "6.3.1",
+    "@vendia/serverless-express": "^4.12.6",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "google-auth-library": "^9.15.1",
+    "http-status-codes": "^2.3.0",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "sst": "3.17.25",
+    "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.3",
+    "@types/aws-lambda": "8.10.159",
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.1",
+    "prisma": "6.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
 }
